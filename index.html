@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f2f2f2;
+            color: #333;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 3em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #666;
+            font-size: 2em;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .achievements {
+            margin-top: 10px;
+            font-weight: bold;
+            list-style: none;
+        }
+
+        .achievements li::before {
+            content: "•";
+            color: #666;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        .projects {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .project {
+            flex-basis: calc(50% - 15px);
+            margin-bottom: 30px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            background-color: #fff;
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .project:hover {
+            transform: scale(1.05);
+        }
+
+        .project img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .project:hover img {
+            filter: grayscale(0%);
+        }
+
+        .project .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project:hover .overlay {
+            opacity: 1;
+        }
+
+        .project h3, .project .description {
+            color: #fff;
+            text-align: center;
+            z-index: 2;
+            font-size: 1em;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 10px;
+        }
+
+        .project .description {
+            font-size: 0.9em;
+            line-height: 1.1;
+        }
+
+        .project a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .graphic-element {
+            text-align: center;
+        }
+
+        .graphic-element img {
+            width: 200px;
+            height: auto;
+            animation: scaleUp 0.5s ease-in-out;
+        }
+
+        .section {
+
+
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.5s ease-in-out;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes scaleUp {
+            0% {
+                transform: scale(0.9);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .about-me {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #333;
+            border-radius: 10px;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .about-me-text {
+            flex: 1;
+        }
+
+        .about-me-text h4 {
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .about-me-text p {
+            font-size: 12px;
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .profile-pic img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .contact-icons {
+            display: flex;
+            justify-content: center;
+        }
+
+        .contact-icons img {
+            width: 40px;
+            height: 40px;
+            margin: 10px;
+        }
+
+        .view-project-button {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Ivan Kleyankin</h1>
+    </header>
+    <div class="container">
+        <section id="profile" class="section">
+            <div class="about-me">
+                <div class="about-me-text">
+                    <h4>Summary</h4>
+                    <p>
+Experienced content producer and marketing specialist with a Master's degree in Performing Arts Production and 7 years of industry experience. Skilled in project management, content strategy, and team coordination. Non-stop striving for innovation and self-development. Keen to relocate.
+                    </p>
+                </div>
+                <div class="profile-pic">
+                    <img src="profile-pic.jpg" alt="Profile Picture">
+                </div>
+            </div>
+        </section>
+        <section id="skills" class="section">
+            <h2>Skills and Expertise</h2>
+            <ul>
+                <li>Audiovisual content production and implementation</li>
+                <li>Project management and resource planning</li>
+                <li>Content strategy and marketing</li>
+                <li>Collaboration with contractors for editing, graphics, and audio</li>
+                <li>Team management and cross-department coordination</li>
+                <li>Creative thinking and innovation</li>
+            </ul>
+        </section>
+        <section id="achievements" class="section">
+            <h2>Achievements</h2>
+            <ul class="achievements">
+                <li>Created over 10,000 unique content assets</li>
+
+
+                <li>Delivered more than 50 turnkey projects</li>
+                <li>Developed over 600 presentations, mood boards, scripts, and creatives</li>
+                <li>Reached an audience of over 200 million people</li>
+                <li>Generated more than 32 million leads</li>
+                <li>Acquired over 400,000 customers</li>
+            </ul>
+        </section>
+        <section id="projects" class="section">
+            <h2>Projects</h2>
+            <div class="projects">
+                <div class="project scroll-reveal">
+                    <img src="work1.jpg" alt="Work Preview">
+                    <div class="overlay">
+                        <h3>ASUS CIS</h3>
+                        <p class="description">34 million views,<br>750.000 leads,<br>60.000 clients</p>
+                        <a href="https://youtube.com/@asuscis?si=twJ3SIf0OnBP-Ptm" class="view-project-button">View Project</a>
+                    </div>
+                </div>
+                <div class="project scroll-reveal">
+                    <img src="work2.jpg" alt="Work Preview">
+                    <div class="overlay">
+                        <h3>Ideas4Fun</h3>
+                        <p class="description">600.000 subs,<br>200.000.000 views</p>
+                        <a href="https://youtube.com/@ideas4funchallenge574?si=YRqwrQaJ2ytagIwC" class="view-project-button">View Project</a>
+                    </div>
+                </div>
+                <div class="project scroll-reveal">
+                    <img src="work3.jpg" alt="Work Preview">
+                    <div class="overlay">
+                        <h3>Cabinet Noir</h3>
+                        <p class="description">600.000 subs,<br>50.000.000 views,<br>200.000 sales</p>
+                        <a href="https://youtube.com/@BlackCabinet?si=g1FFb37s6s4kkywT" class="view-project-button">View Project</a>
+                    </div>
+                </div>
+                <div class="project scroll-reveal">
+                    <img src="work4.jpg" alt="Work Preview">
+                    <div class="overlay">
+                        <h3>The Cube</h3>
+                        <p class="description">1.400.000 subs,<br>200.000.000 views</p>
+                        <a href="https://youtube.com/@oficialKUB?si=aZnlfd4m2fcdrUSH" class="view-project-button">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="contact" class="section scroll-reveal">
+            <h2>DM For More:</h2>
+            <div class="contact-icons">
+                <a href="mailto:leadboostmedi4@gmail.com"><img src="gmail_logo.png" alt="Gmail Logo"></a>
+                <a href="wa.me/79167178756"><img src="whatsapp_logo.png" alt="WhatsApp Logo"></a>
+                <a href="t.me/WorkLifeDisbalance"><img src="telegram_logo.png" alt="Telegram Logo"></a>
+            </div>
+        </section>
+    </div>
+    <script>
+        window.addEventListener('scroll', reveal);
+        function reveal() {
+            var reveals = document.querySelectorAll('.scroll-reveal');
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var revealTop = reveals[i].getBoundingClientRect().top;
+                var revealPoint = 100;
+                if (revealTop < windowHeight - revealPoint) {
+                    reveals[i].classList.add('visible');
+                }
+            }
+        }
+    </script>
+</body>
+</html>
