@@ -331,24 +331,27 @@ Experienced content producer and marketing specialist with a Master's degree in 
             </div>
         </section>
        <section id="contact" class="section scroll-reveal">
-    <h2>DM For More:</h2>
-    <div class="contact-icons">
-        <a href="javascript:void(0);" onclick="copyToClipboard('leadboostmedi4@gmail.com')"><img src="gmail_logo.png" alt="Gmail Logo"></a>
-        <a href="javascript:void(0);" onclick="copyToClipboard('https://t.me/WorkLifeDisbalance')"><img src="telegram_logo.png" alt="Telegram Logo"></a>
-        <a href="javascript:void(0);" onclick="copyToClipboard('https://wa.me/79167178756')"><img src="whatsapp_logo.png" alt="WhatsApp Logo"></a>
+            <h2>DM For More:</h2>
+            <div class="contact-icons">
+                <a href="mailto:leadboostmedi4@gmail.com"><img src="gmail_logo.png" alt="Gmail Logo"></a>
+                <a href="wa.me/79167178756"><img src="whatsapp_logo.png" alt="WhatsApp Logo"></a>
+                <a href="t.me/WorkLifeDisbalance"><img src="telegram_logo.png" alt="Telegram Logo"></a>
+            </div>
+        </section>
     </div>
-</section>
-
-<script>
-    function copyToClipboard(text) {
-        const tempInput = document.createElement('input');
-        tempInput.value = text;
-        document.body.appendChild(tempInput);
-        tempInput.select();
-        document.execCommand('copy');
-        document.body.removeChild(tempInput);
-        alert('The link is copied! Now you can text me anything');
-    }
-</script>
+    <script>
+        window.addEventListener('scroll', reveal);
+        function reveal() {
+            var reveals = document.querySelectorAll('.scroll-reveal');
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var revealTop = reveals[i].getBoundingClientRect().top;
+                var revealPoint = 100;
+                if (revealTop < windowHeight - revealPoint) {
+                    reveals[i].classList.add('visible');
+                }
+            }
+        }
+    </script>
 </body>
 </html>
